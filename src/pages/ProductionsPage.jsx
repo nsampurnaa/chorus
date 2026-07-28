@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Ticket, ArrowRight, Calendar, Filter } from 'lucide-react';
 
 export default function ProductionsPage({ onOpenJoinModal }) {
   const [activeFilter, setActiveFilter] = useState('ALL WORKS');
   const [selectedTicketShow, setSelectedTicketShow] = useState(null);
+  const [archiveSlide, setArchiveSlide] = useState(0);
 
   const archiveShows = [
     {
@@ -44,6 +45,27 @@ export default function ProductionsPage({ onOpenJoinModal }) {
     ? archiveShows
     : archiveShows.filter(s => s.genre === activeFilter);
 
+  useEffect(() => {
+    setArchiveSlide(0);
+  }, [activeFilter]);
+
+  useEffect(() => {
+    if (filteredShows.length <= 1) return;
+    const interval = setInterval(() => {
+      setArchiveSlide((prev) => (prev + 1) % filteredShows.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [filteredShows.length]);
+
+  const getSlideOffset = (idx) => {
+    const total = filteredShows.length;
+    if (total <= 1) return 0;
+    let diff = idx - archiveSlide;
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+    return diff;
+  };
+
   return (
     <div class="space-y-0">
       {/* Current Season Hero */}
@@ -75,30 +97,30 @@ export default function ProductionsPage({ onOpenJoinModal }) {
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
                 style={{
-                  backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvV8pkwx0TCN6cdFau47KuuJjwPn6tvOB08UAvdIOKfphTlh3W_8Uo3Z38eu_rMmBdvLiA6E4hoz-ZIi5tbZyTENifg6KUm1nPEgjqHD2HY4yGvX-tgguIr9u7VSUPHIIJ6yiyJym7ipudNBneXINlW1LLzQIp2v4orENifQecOzxfIuNsxnws4reO_ryuk4_D7WP6r3YOqeFLcOMraTJ4rrr--Ry6X2YMoKYSxeJy35J0uM4zT7k3o3NWEfF52dJdpjA1KzP2btY')`
+                  backgroundImage: `url('/poster-tamasgranthi.jpg')`
                 }}
               ></div>
               <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-8 md:p-12">
                 <div class="flex gap-4 mb-4 flex-wrap">
                   <span class="bg-primary-container text-on-primary-fixed px-3 py-1 font-label-sm text-xs font-bold uppercase">
-                    TRAGEDY
+                    CHORUS PRODUCTION
                   </span>
                   <span class="border border-primary-fixed text-primary-fixed px-3 py-1 font-label-sm text-xs font-bold uppercase">
-                    MAY 15 - 20, 2024
+                    16TH AUGUST • 4:00 PM IST
                   </span>
                 </div>
                 <h3 class="font-headline-lg text-4xl md:text-6xl text-on-background uppercase mb-2">
-                  MACBETH: REDUX
+                  তামসগ্রন্থিস
                 </h3>
                 <p class="text-on-surface-variant font-body-md max-w-lg mb-6 text-sm md:text-base">
-                  A brutalist re-imagining of Shakespeare's classic. Power, ambition, and the blood that washes it away. Directed by Julian Vance.
+                  A Chorus Production staged live at Gyan Mancha. Direction & Script by Sanyandeep & Parijat.
                 </p>
                 <button
-                  onClick={() => setSelectedTicketShow({ title: 'MACBETH: REDUX', date: 'May 15 - 20, 2024' })}
+                  onClick={() => setSelectedTicketShow({ title: 'তামসগ্রন্থিস (Tamasgranthi)', date: '16th August • Gyan Mancha' })}
                   class="border-2 border-primary-fixed text-primary-fixed px-8 py-4 font-label-sm text-xs font-bold uppercase hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors inline-flex items-center gap-2"
                 >
-                  <Ticket size={18} /> Buy Tickets
+                  <Ticket size={18} /> Reserve Tickets
                 </button>
               </div>
             </div>
@@ -106,29 +128,29 @@ export default function ProductionsPage({ onOpenJoinModal }) {
             <div class="lg:col-span-4 flex flex-col gap-8">
               <div class="flex-1 group relative overflow-hidden bg-surface-container min-h-[260px]">
                 <div
-                  class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                  class="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:scale-105"
                   style={{
-                    backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjmQnyozcICHupQV_f70xnVyMXPUQOu1mtCvf3TtczjhKwZCj8p-f3XYTPNJv0I0CI9AxLxGodkCEGQ4LTISXRBSbmXBLsZVEBNXEfOeCBKkDryCGgbaISGjw0RCx1yJRnOHNycu1DwvT5EkKP4eYHQkKH8SIl9ytXRoB7ciyk_d3JND2aCagxVt4bJyJW1YAjet9Qxbzq3IEcr1C5mQfh2RLxmil7Gau725BfAnWdZLx8f4bxK1dILgZaJKWgVQuXGFw_0R5tytw')`
+                    backgroundImage: `url('/poster-japoner-jonno.jpg')`
                   }}
                 ></div>
-                <div class="absolute inset-0 bg-surface/50"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
-                  <h4 class="font-headline-lg text-2xl text-on-background uppercase">CHORUS: THE MUSICAL</h4>
-                  <p class="font-label-sm text-xs text-primary-fixed font-bold uppercase">JUNE 2024</p>
+                  <h4 class="font-headline-lg text-2xl text-on-background uppercase">যাপনের জন্য</h4>
+                  <p class="font-label-sm text-xs text-primary-fixed font-bold uppercase">BASED ON MANTO</p>
                 </div>
               </div>
 
               <div class="flex-1 group relative overflow-hidden bg-surface-container min-h-[260px]">
                 <div
-                  class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                  class="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:scale-105"
                   style={{
-                    backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgmOs7WgRB9_DtBBCvKRulAkE0VCJ0JiA8fCmC6CAs5Vk5IutitWNhZPRzFpO21cGsbWzBjoMOklbGiAOyrrNrFixk5EftYGtOpk9mU7fS4ewKf_QysQ3My8qgORvHCqrGzH_RDXa1IyGInvL8MInWBGdQJU9dJnwKSvWYNTxv90j_d4rdSJaecN2t30V9Hg4mdPtRD7-1S3iH31R6kcvhTOkXm4h4VX0u_3CyafyOV5l6Ds8o3zADJEykhBaUqncMlqkHaDGAzKs')`
+                    backgroundImage: `url('/poster-menzone.jpg')`
                   }}
                 ></div>
-                <div class="absolute inset-0 bg-surface/50"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
-                  <h4 class="font-headline-lg text-2xl text-on-background uppercase">WAITING FOR GODOT</h4>
-                  <p class="font-label-sm text-xs text-primary-fixed font-bold uppercase">JULY 2024</p>
+                  <h4 class="font-headline-lg text-2xl text-on-background uppercase">MENZONE</h4>
+                  <p class="font-label-sm text-xs text-primary-fixed font-bold uppercase">14TH DECEMBER • GYAN MANCHA</p>
                 </div>
               </div>
             </div>
@@ -159,38 +181,42 @@ export default function ProductionsPage({ onOpenJoinModal }) {
             </div>
           </div>
 
-          {/* Archive Grid */}
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {filteredShows.map((show) => (
-              <div
-                key={show.id}
-                class="bg-surface-container-low group cursor-pointer overflow-hidden border border-white/5 hover:border-primary-fixed/30 transition-all duration-300"
-              >
-                <div class="relative h-64 overflow-hidden">
-                  <div
-                    class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                    style={{ backgroundImage: `url('${show.img}')` }}
-                  ></div>
+          {/* Continuous Infinite Slide Marquee */}
+          <div class="relative w-full overflow-hidden py-4 select-none">
+            <div class="animate-continuous-marquee flex gap-6">
+              {[...filteredShows, ...filteredShows, ...filteredShows, ...filteredShows].map((show, idx) => (
+                <div
+                  key={`${show.id}-${idx}`}
+                  class="w-[300px] sm:w-[360px] md:w-[420px] flex-shrink-0 bg-surface-container-low group cursor-pointer overflow-hidden border border-white/10 hover:border-primary-fixed/50 hover:shadow-[0_20px_50px_rgba(255,215,0,0.15)] hover:scale-[1.03] transition-all duration-500 rounded-xl"
+                >
+                  <div class="relative h-64 md:h-72 overflow-hidden bg-black">
+                    <img
+                      src={show.img}
+                      alt={show.title}
+                      class="w-full h-full object-contain md:object-cover bg-black transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+                  </div>
+                  <div class="p-6 space-y-3">
+                    <p class="font-label-sm text-xs text-primary-fixed font-bold tracking-widest uppercase">
+                      {show.year} • {show.genre}
+                    </p>
+                    <h4 class="font-headline-lg text-xl uppercase text-on-background leading-tight">
+                      {show.title}
+                    </h4>
+                    <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">
+                      {show.desc}
+                    </p>
+                    <button
+                      onClick={() => setSelectedTicketShow({ title: show.title, date: show.year })}
+                      class="text-primary-fixed font-label-sm text-xs tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all uppercase pt-2 font-bold"
+                    >
+                      View Details <ArrowRight size={14} />
+                    </button>
+                  </div>
                 </div>
-                <div class="p-6 space-y-3">
-                  <p class="font-label-sm text-xs text-outline font-bold">
-                    {show.year} • {show.genre}
-                  </p>
-                  <h4 class="font-headline-lg text-xl text-on-background uppercase leading-tight">
-                    {show.title}
-                  </h4>
-                  <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">
-                    {show.desc}
-                  </p>
-                  <button
-                    onClick={() => setSelectedTicketShow({ title: show.title, date: show.year })}
-                    class="text-primary-fixed font-label-sm text-xs tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all uppercase pt-2 font-bold"
-                  >
-                    View Details <ArrowRight size={14} />
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

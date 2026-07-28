@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import chorusLogo from '../../assets/logo.png';
 
 export default function Navbar({ onOpenJoinModal }) {
   const location = useLocation();
@@ -18,12 +19,19 @@ export default function Navbar({ onOpenJoinModal }) {
   return (
     <header class="bg-surface/90 dark:bg-surface/90 sticky top-0 z-50 backdrop-blur-xl border-b border-white/5 shadow-[0px_0px_40px_rgba(255,215,0,0.05)]">
       <div class="flex justify-between items-center w-full px-4 md:px-margin-desktop py-unit max-w-container-max mx-auto h-20">
-        {/* Brand Logo */}
+        {/* Brand Logo & Title */}
         <Link 
           to="/" 
-          class="font-display-xl text-3xl md:text-5xl text-primary-fixed tracking-widest uppercase hover:scale-105 transition-transform duration-300"
+          class="flex items-center gap-3 group focus:outline-none"
         >
-          CHORUS
+          <img 
+            src={chorusLogo} 
+            alt="CHORUS Logo" 
+            class="h-10 md:h-12 w-auto object-contain rounded group-hover:scale-105 transition-transform duration-300"
+          />
+          <span class="font-display-xl text-3xl md:text-5xl text-primary-fixed tracking-widest uppercase group-hover:scale-105 transition-transform duration-300">
+            CHORUS
+          </span>
         </Link>
 
         {/* Desktop Nav */}
