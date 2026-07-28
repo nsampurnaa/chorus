@@ -187,9 +187,9 @@ export default function ProductionsPage({ onOpenJoinModal }) {
               {[...filteredShows, ...filteredShows, ...filteredShows, ...filteredShows].map((show, idx) => (
                 <div
                   key={`${show.id}-${idx}`}
-                  class="w-[300px] sm:w-[360px] md:w-[420px] flex-shrink-0 bg-surface-container-low group cursor-pointer overflow-hidden border border-white/10 hover:border-primary-fixed/50 hover:shadow-[0_20px_50px_rgba(255,215,0,0.15)] hover:scale-[1.03] transition-all duration-500 rounded-xl"
+                  class="w-[260px] sm:w-[360px] md:w-[420px] flex-shrink-0 bg-surface-container-low group cursor-pointer overflow-hidden border border-white/10 hover:border-primary-fixed/50 hover:shadow-[0_20px_50px_rgba(255,215,0,0.15)] hover:scale-[1.03] transition-all duration-500 rounded-2xl"
                 >
-                  <div class="relative h-64 md:h-72 overflow-hidden bg-black">
+                  <div class="relative h-56 sm:h-64 md:h-72 overflow-hidden bg-black">
                     <img
                       src={show.img}
                       alt={show.title}
@@ -197,11 +197,11 @@ export default function ProductionsPage({ onOpenJoinModal }) {
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
                   </div>
-                  <div class="p-6 space-y-3">
+                  <div class="p-5 sm:p-6 space-y-2.5 sm:space-y-3">
                     <p class="font-label-sm text-xs text-primary-fixed font-bold tracking-widest uppercase">
                       {show.year} • {show.genre}
                     </p>
-                    <h4 class="font-headline-lg text-xl uppercase text-on-background leading-tight">
+                    <h4 class="font-headline-lg text-lg sm:text-xl uppercase text-on-background leading-tight">
                       {show.title}
                     </h4>
                     <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">
@@ -224,9 +224,9 @@ export default function ProductionsPage({ onOpenJoinModal }) {
       {/* Ticket Modal */}
       {selectedTicketShow && (
         <div class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div class="bg-surface-container-high border border-primary-fixed/40 p-8 max-w-md w-full space-y-6 ticket-notch text-center">
+          <div class="bg-surface-container-high border border-primary-fixed/40 p-6 sm:p-8 max-w-md w-full space-y-6 rounded-3xl text-center shadow-2xl">
             <Ticket className="w-12 h-12 text-primary-fixed mx-auto" />
-            <h3 class="font-headline-lg text-3xl text-primary-fixed uppercase">{selectedTicketShow.title}</h3>
+            <h3 class="font-headline-lg text-2xl sm:text-3xl text-primary-fixed uppercase">{selectedTicketShow.title}</h3>
             <p class="font-body-md text-on-surface-variant text-sm">
               Showtimes and pass allocations for <span class="text-primary-fixed">{selectedTicketShow.date}</span> are available for IEM students and faculty.
             </p>

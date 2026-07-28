@@ -120,7 +120,7 @@ export default function Navbar({ onOpenJoinModal }) {
               setMobileMenuOpen(false);
               onOpenJoinModal();
             }}
-            class="w-full bg-primary-container text-on-primary-container px-6 py-3 font-label-sm text-label-sm uppercase font-bold hover:glow-primary-fixed transition-all mt-4"
+            class="w-full bg-transparent border-2 border-primary-fixed text-white px-6 py-3 font-label-sm text-sm uppercase font-bold hover:bg-primary-fixed hover:text-black rounded-full transition-all mt-4 active:scale-95"
           >
             Join the Club
           </button>

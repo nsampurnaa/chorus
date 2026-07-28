@@ -24,12 +24,12 @@ export default function JoinModal({ isOpen, onClose }) {
 
   return (
     <div class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-      <div class="relative w-full max-w-xl bg-surface-container-high border border-primary-fixed/30 p-8 shadow-[0_0_50px_rgba(255,215,0,0.15)] ticket-notch">
+      <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-surface-container-high border border-primary-fixed/30 p-6 sm:p-8 shadow-[0_0_50px_rgba(255,215,0,0.15)] rounded-3xl">
         <button
           onClick={onClose}
-          class="absolute top-6 right-6 text-on-surface-variant hover:text-primary-fixed transition-colors"
+          class="absolute top-5 right-5 text-on-surface-variant hover:text-primary-fixed transition-colors"
         >
-          <X size={28} />
+          <X size={24} />
         </button>
 
         {submitted ? (
@@ -41,14 +41,14 @@ export default function JoinModal({ isOpen, onClose }) {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} class="space-y-6">
+          <form onSubmit={handleSubmit} class="space-y-5">
             <div>
-              <div class="flex items-center gap-2 mb-2">
-                <Sparkles className="w-5 h-5 text-primary-fixed" />
+              <div class="flex items-center gap-2 mb-1.5">
+                <Sparkles className="w-4 h-4 text-primary-fixed" />
                 <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-widest">Stage Call 2024</span>
               </div>
-              <h2 class="font-headline-lg text-4xl text-on-surface uppercase">Join The Ensemble</h2>
-              <p class="font-body-md text-on-surface-variant text-sm mt-1">
+              <h2 class="font-headline-lg text-2xl sm:text-4xl text-on-surface uppercase">Join The Ensemble</h2>
+              <p class="font-body-md text-on-surface-variant text-xs sm:text-sm mt-1">
                 Step into the spotlight. Select your creative domain and register for auditions.
               </p>
             </div>
@@ -62,7 +62,7 @@ export default function JoinModal({ isOpen, onClose }) {
                   placeholder="e.g. Julian Vance"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors"
+                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors rounded-xl"
                 />
               </div>
 
@@ -74,7 +74,7 @@ export default function JoinModal({ isOpen, onClose }) {
                   placeholder="e.g. julian@iem.edu.in"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors"
+                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors rounded-xl"
                 />
               </div>
 
@@ -83,7 +83,7 @@ export default function JoinModal({ isOpen, onClose }) {
                 <select
                   value={formData.department}
                   onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors"
+                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors rounded-xl"
                 >
                   <option value="Acting Wing">Acting Wing</option>
                   <option value="Scripting Wing">Scripting & Playwriting</option>
@@ -100,14 +100,14 @@ export default function JoinModal({ isOpen, onClose }) {
                   placeholder="Tell us about your passion or past stage experience..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors"
+                  class="w-full bg-surface-container-low border border-outline-variant/50 focus:border-primary-fixed px-4 py-3 text-on-surface outline-none transition-colors rounded-xl"
                 ></textarea>
               </div>
             </div>
 
             <button
               type="submit"
-              class="w-full bg-primary-container text-on-primary-container font-label-sm text-sm uppercase font-bold py-4 hover:glow-primary-fixed transition-all duration-300 active:scale-98"
+              class="w-full bg-primary-fixed text-black font-label-sm text-sm uppercase font-bold py-3.5 hover:glow-primary-fixed rounded-full transition-all duration-300 active:scale-95 mt-2"
             >
               Submit Application
             </button>

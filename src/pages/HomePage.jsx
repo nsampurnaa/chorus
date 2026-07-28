@@ -140,10 +140,10 @@ export default function HomePage({ onOpenJoinModal }) {
           const buttonsTranslateY = (1 - buttonsProgress) * 45;
 
           return (
-            <div class="max-w-4xl mx-auto py-12">
+            <div class="max-w-4xl mx-auto py-8 sm:py-12">
               {/* Logo - Drops & Bounces cleanly in open stage center */}
               <div
-                class="mb-6 flex justify-center transition-all duration-300 ease-out"
+                class="mb-4 sm:mb-6 flex justify-center transition-all duration-300 ease-out"
                 style={{
                   opacity: logoOpacity,
                   transform: `translateY(${logoTranslateY}px) scale(${logoScale})`
@@ -152,13 +152,13 @@ export default function HomePage({ onOpenJoinModal }) {
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3O858UR70msNyraLpY8jL9W-yyJ7jJlLXgkivn3kb2N6SNR8wNwKpvffJBvH8ClnPSeGCMZE1O3KP1aSH06rfQVQgOC7RfyhltWSA768jwdSRrjCb_SuvgUK7fJZBNGDXTsEjJfcgyYKkYDhy07kRMKMnNffmH4FzZUDCxMaNng-sOhFRCLB9srYzf_r0qKPcwefNEGFPTBTDip0zi4iGJTpKaQf6fdABd227tsABFzTkvXNvVKtqMJLuXqIVYLRAFgStc5OCYg"
                   alt="CHORUS IEM Drama Club Logo"
-                  class="w-48 sm:w-60 md:w-72 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)] object-contain mx-auto"
+                  class="w-36 sm:w-56 md:w-72 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)] object-contain mx-auto"
                 />
               </div>
 
               {/* 1st Text: Title "CHORUS" rises up from down */}
               <h1
-                class="font-display-xl text-6xl md:text-8xl text-primary-fixed mb-4 tracking-tighter uppercase transition-all duration-300 ease-out"
+                class="font-display-xl text-4xl sm:text-6xl md:text-8xl text-primary-fixed mb-2 sm:mb-4 tracking-tighter uppercase transition-all duration-300 ease-out"
                 style={{
                   opacity: titleOpacity,
                   transform: `translateY(${titleTranslateY}px)`
@@ -169,7 +169,7 @@ export default function HomePage({ onOpenJoinModal }) {
 
               {/* 2nd Text: Motto Subtitle zooms from behind stage to front */}
               <p
-                class="font-headline-lg text-2xl md:text-3xl text-on-surface-variant mb-6 italic opacity-85 max-w-2xl mx-auto transition-all duration-300 ease-out"
+                class="font-headline-lg text-base sm:text-2xl md:text-3xl text-on-surface-variant mb-4 sm:mb-6 italic opacity-85 max-w-2xl mx-auto px-2 transition-all duration-300 ease-out"
                 style={{
                   opacity: subtitleOpacity,
                   transform: `scale(${subtitleScale})`,
@@ -181,7 +181,7 @@ export default function HomePage({ onOpenJoinModal }) {
 
               {/* 3rd Element: Action Buttons rise up from down */}
               <div
-                class="flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-300 ease-out"
+                class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center w-full max-w-xs sm:max-w-none mx-auto transition-all duration-300 ease-out"
                 style={{
                   opacity: buttonsOpacity,
                   transform: `translateY(${buttonsTranslateY}px)`,
@@ -190,13 +190,13 @@ export default function HomePage({ onOpenJoinModal }) {
               >
                 <button
                   onClick={onOpenJoinModal}
-                  class="bg-transparent border-2 border-primary-fixed text-black px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary-fixed hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 transition-all duration-300"
+                  class="w-full sm:w-auto bg-transparent border-2 border-primary-fixed text-white sm:text-black px-6 sm:px-10 py-3.5 sm:py-5 font-label-sm text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary-fixed hover:text-black hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   Join the Club
                 </button>
                 <Link
                   to="/productions"
-                  class="bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest rounded-full hover:glow-primary-fixed hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 transition-all duration-300"
+                  class="w-full sm:w-auto bg-primary-fixed text-on-primary-fixed px-6 sm:px-10 py-3.5 sm:py-5 font-label-sm text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full hover:glow-primary-fixed hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   Upcoming Events
                 </Link>
@@ -204,10 +204,10 @@ export default function HomePage({ onOpenJoinModal }) {
 
               {/* Scroll Cue Arrow */}
               <div
-                class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-primary-fixed opacity-70 transition-opacity duration-300 pointer-events-none"
+                class="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-primary-fixed opacity-70 transition-opacity duration-300 pointer-events-none"
                 style={{ opacity: buttonsOpacity * 0.7 }}
               >
-                <ChevronDown size={32} />
+                <ChevronDown size={28} />
               </div>
             </div>
           );

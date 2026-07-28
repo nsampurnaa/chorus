@@ -99,13 +99,13 @@ export default function GalleryPage() {
       </header>
 
       {/* Category Filters */}
-      <section class="max-w-container-max mx-auto px-4 md:px-margin-desktop mb-12">
-        <div class="flex flex-wrap gap-4">
+      <section class="max-w-container-max mx-auto px-4 md:px-margin-desktop mb-8 sm:mb-12">
+        <div class="flex flex-wrap gap-2.5 sm:gap-4">
           {['All Moments', 'On Stage', 'Backstage', 'Rehearsals', 'Community'].map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              class={`font-label-sm text-xs uppercase px-8 py-4 tracking-widest transition-all duration-300 font-bold ${
+              class={`font-label-sm text-xs uppercase px-4 sm:px-8 py-2.5 sm:py-3.5 tracking-widest transition-all duration-300 font-bold rounded-full ${
                 activeCategory === cat
                   ? 'border-2 border-primary-fixed bg-primary-fixed text-on-primary-fixed glow-primary-fixed'
                   : 'border-2 border-primary-fixed-dim text-primary-fixed-dim hover:bg-primary-fixed hover:text-on-primary-fixed'
@@ -119,12 +119,12 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section class="max-w-container-max mx-auto px-4 md:px-margin-desktop pb-spotlight-padding">
-        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setActiveLightboxItem(item)}
-              class="break-inside-avoid group cursor-pointer overflow-hidden relative bg-surface-container border border-white/5 hover:border-primary-fixed/40 transition-all duration-300 rounded-sm"
+              class="break-inside-avoid group cursor-pointer overflow-hidden relative bg-surface-container border border-white/5 hover:border-primary-fixed/40 transition-all duration-300 rounded-2xl shadow-lg"
             >
               <div class="overflow-hidden bg-surface-container-high relative">
                 <img 
