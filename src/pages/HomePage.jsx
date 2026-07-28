@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Drama, Film, Sparkles } from 'lucide-react';
+import HeroFrameCanvas from '../components/HeroFrameCanvas';
 
 export default function HomePage({ onOpenJoinModal }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -89,60 +90,129 @@ export default function HomePage({ onOpenJoinModal }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
-    }, 5000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [galleryImages.length]);
 
   return (
     <div class="space-y-0">
-      {/* Hero Section */}
-      <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden px-4">
-        {/* Background Image with Dark Overlay and Subtle Blur */}
-        <div
-          class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-102 filter blur-[3px] brightness-[0.8] contrast-[1.1] transition-all duration-700"
-          style={{ backgroundImage: `url('/hero-bg.jpg')` }}
-        ></div>
-        
-        {/* Dark Spotlight Gradient Overlay */}
-        <div class="absolute inset-0 z-0 bg-gradient-to-t from-surface via-surface/80 to-black/70 spotlight-gradient"></div>
+      {/* Scroll-Driven Curtain & Spotlight Hero Section */}
+      <HeroFrameCanvas>
+        {({ scrollProgress }) => {
+          // 1. Logo drops from upper stage arch after curtains open wide (scrollProgress 0.55 -> 0.75)
+          const logoThreshold = 0.55;
+          const logoProgress = scrollProgress < logoThreshold ? 0 : Math.min(1, (scrollProgress - logoThreshold) / 0.20);
+          const logoOpacity = Math.min(1, logoProgress * 1.6);
 
-        <div class="z-10 max-w-4xl mx-auto py-12">
-          <div class="mb-6 flex justify-center">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3O858UR70msNyraLpY8jL9W-yyJ7jJlLXgkivn3kb2N6SNR8wNwKpvffJBvH8ClnPSeGCMZE1O3KP1aSH06rfQVQgOC7RfyhltWSA768jwdSRrjCb_SuvgUK7fJZBNGDXTsEjJfcgyYKkYDhy07kRMKMnNffmH4FzZUDCxMaNng-sOhFRCLB9srYzf_r0qKPcwefNEGFPTBTDip0zi4iGJTpKaQf6fdABd227tsABFzTkvXNvVKtqMJLuXqIVYLRAFgStc5OCYg"
-              alt="CHORUS IEM Drama Club Logo"
-              class="w-56 md:w-80 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)] object-contain mx-auto"
-            />
-          </div>
+          let logoTranslateY = 0;
+          if (logoProgress <= 0.65) {
+            const p = logoProgress / 0.65;
+            logoTranslateY = (1 - (p * p)) * -90;
+          } else if (logoProgress <= 0.85) {
+            const p = (logoProgress - 0.65) / 0.20;
+            logoTranslateY = -20 * (4 * p * (1 - p));
+          } else if (logoProgress <= 0.95) {
+            const p = (logoProgress - 0.85) / 0.10;
+            logoTranslateY = -5 * (4 * p * (1 - p));
+          } else {
+            logoTranslateY = 0;
+          }
 
-          <h1 class="font-display-xl text-6xl md:text-8xl text-primary-fixed mb-4 tracking-tighter uppercase">
-            CHORUS
-          </h1>
+          const logoScale = logoProgress <= 0.65 ? 0.92 + (logoProgress / 0.65) * 0.08 : 1.0;
 
-          <p class="font-headline-lg text-2xl md:text-3xl text-on-surface-variant mb-12 italic opacity-85 max-w-2xl mx-auto">
-            "Where Every Soul Finds Its Stage"
-          </p>
+          // 2. Title "CHORUS" rises up from down (scrollProgress 0.76 -> 0.84)
+          const titleThreshold = 0.76;
+          const titleProgress = scrollProgress < titleThreshold ? 0 : Math.min(1, (scrollProgress - titleThreshold) / 0.08);
+          const titleOpacity = titleProgress;
+          const titleTranslateY = (1 - titleProgress) * 45;
 
-          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button
-              onClick={onOpenJoinModal}
-              class="bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest hover:glow-primary-fixed transition-all"
-            >
-              Join the Club
-            </button>
-            <Link
-              to="/productions"
-              class="border-2 border-primary-fixed text-primary-fixed px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest hover:bg-primary-fixed hover:text-on-primary-fixed transition-all"
-            >
-              Upcoming Events
-            </Link>
-          </div>
-        </div>
+          // 3. Subtitle "Where Every Soul Finds Its Stage" comes from behind stage to front (scrollProgress 0.85 -> 0.92)
+          const subtitleThreshold = 0.85;
+          const subtitleProgress = scrollProgress < subtitleThreshold ? 0 : Math.min(1, (scrollProgress - subtitleThreshold) / 0.07);
+          const subtitleOpacity = subtitleProgress;
+          const subtitleScale = 0.4 + (subtitleProgress * 0.6);
+          const subtitleBlur = (1 - subtitleProgress) * 6;
 
-        <div class="absolute bottom-6 animate-bounce text-primary-fixed opacity-70">
-          <ChevronDown size={32} />
-        </div>
-      </section>
+          // 4. Buttons "Join the Club" & "Upcoming Events" rise up from down (scrollProgress 0.93 -> 0.99)
+          const buttonsThreshold = 0.93;
+          const buttonsProgress = scrollProgress < buttonsThreshold ? 0 : Math.min(1, (scrollProgress - buttonsThreshold) / 0.06);
+          const buttonsOpacity = buttonsProgress;
+          const buttonsTranslateY = (1 - buttonsProgress) * 45;
+
+          return (
+            <div class="max-w-4xl mx-auto py-12">
+              {/* Logo - Drops & Bounces cleanly in open stage center */}
+              <div
+                class="mb-6 flex justify-center transition-all duration-300 ease-out"
+                style={{
+                  opacity: logoOpacity,
+                  transform: `translateY(${logoTranslateY}px) scale(${logoScale})`
+                }}
+              >
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3O858UR70msNyraLpY8jL9W-yyJ7jJlLXgkivn3kb2N6SNR8wNwKpvffJBvH8ClnPSeGCMZE1O3KP1aSH06rfQVQgOC7RfyhltWSA768jwdSRrjCb_SuvgUK7fJZBNGDXTsEjJfcgyYKkYDhy07kRMKMnNffmH4FzZUDCxMaNng-sOhFRCLB9srYzf_r0qKPcwefNEGFPTBTDip0zi4iGJTpKaQf6fdABd227tsABFzTkvXNvVKtqMJLuXqIVYLRAFgStc5OCYg"
+                  alt="CHORUS IEM Drama Club Logo"
+                  class="w-48 sm:w-60 md:w-72 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)] object-contain mx-auto"
+                />
+              </div>
+
+              {/* 1st Text: Title "CHORUS" rises up from down */}
+              <h1
+                class="font-display-xl text-6xl md:text-8xl text-primary-fixed mb-4 tracking-tighter uppercase transition-all duration-300 ease-out"
+                style={{
+                  opacity: titleOpacity,
+                  transform: `translateY(${titleTranslateY}px)`
+                }}
+              >
+                CHORUS
+              </h1>
+
+              {/* 2nd Text: Motto Subtitle zooms from behind stage to front */}
+              <p
+                class="font-headline-lg text-2xl md:text-3xl text-on-surface-variant mb-6 italic opacity-85 max-w-2xl mx-auto transition-all duration-300 ease-out"
+                style={{
+                  opacity: subtitleOpacity,
+                  transform: `scale(${subtitleScale})`,
+                  filter: `blur(${subtitleBlur}px)`
+                }}
+              >
+                "Where Every Soul Finds Its Stage"
+              </p>
+
+              {/* 3rd Element: Action Buttons rise up from down */}
+              <div
+                class="flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-300 ease-out"
+                style={{
+                  opacity: buttonsOpacity,
+                  transform: `translateY(${buttonsTranslateY}px)`,
+                  pointerEvents: buttonsProgress >= 0.5 ? 'auto' : 'none'
+                }}
+              >
+                <button
+                  onClick={onOpenJoinModal}
+                  class="bg-transparent border-2 border-primary-fixed text-black px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary-fixed hover:text-black hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 transition-all duration-300"
+                >
+                  Join the Club
+                </button>
+                <Link
+                  to="/productions"
+                  class="bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-sm text-sm font-bold uppercase tracking-widest rounded-full hover:glow-primary-fixed hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 transition-all duration-300"
+                >
+                  Upcoming Events
+                </Link>
+              </div>
+
+              {/* Scroll Cue Arrow */}
+              <div
+                class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-primary-fixed opacity-70 transition-opacity duration-300 pointer-events-none"
+                style={{ opacity: buttonsOpacity * 0.7 }}
+              >
+                <ChevronDown size={32} />
+              </div>
+            </div>
+          );
+        }}
+      </HeroFrameCanvas>
 
       {/* About Preview Section */}
       <section class="py-spotlight-padding px-4 md:px-margin-desktop max-w-container-max mx-auto">
@@ -292,7 +362,7 @@ export default function HomePage({ onOpenJoinModal }) {
 
       {/* Take Your Place Center Stage Section */}
       <section class="py-spotlight-padding px-4 md:px-margin-desktop max-w-container-max mx-auto" id="join">
-        <div class="bg-surface-container-low p-8 md:p-16 border border-outline-variant/20 relative ticket-notch">
+        <div class="bg-surface-container-low p-8 md:p-16 border border-outline-variant/20 relative rounded-3xl overflow-hidden shadow-2xl">
           <div class="absolute top-0 right-0 p-8 md:p-12 opacity-10 pointer-events-none">
             <span class="material-symbols-outlined text-[8rem] md:text-[10rem]">mail</span>
           </div>
@@ -330,7 +400,7 @@ export default function HomePage({ onOpenJoinModal }) {
               </div>
               <button
                 type="submit"
-                class="bg-primary-fixed text-on-primary-fixed px-12 py-5 font-label-sm font-bold uppercase tracking-widest hover:glow-primary-fixed transition-all mt-4"
+                class="bg-primary-fixed text-black px-12 py-5 font-label-sm font-bold uppercase tracking-widest hover:glow-primary-fixed hover:scale-105 active:scale-95 transition-all duration-300 mt-4 rounded-full"
               >
                 Submit Application
               </button>
