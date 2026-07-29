@@ -13,7 +13,7 @@ export default function Footer() {
 
   return (
     <footer class="bg-surface-container-lowest border-t border-white/5 py-6 mt-8">
-      <div class="flex flex-col items-center justify-center space-y-3 w-full px-4 md:px-margin-desktop max-w-container-max mx-auto text-center">
+      <div class="flex flex-col items-center justify-center space-y-3 w-full px-4 md:px-12 max-w-full mx-auto text-center">
         {/* Brand, Nav & Social Icons in a clean compact row */}
         <div class="flex flex-col md:flex-row items-center justify-between w-full gap-4 pb-3 border-b border-white/5">
           <Link to="/" class="font-display-xl text-2xl text-primary-fixed uppercase tracking-widest hover:scale-105 transition-transform">

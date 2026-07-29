@@ -47,7 +47,7 @@ export default function Navbar({ onOpenJoinModal }) {
           : '-translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      <div class="flex justify-between items-center w-full px-4 md:px-margin-desktop py-2 max-w-container-max mx-auto h-14 md:h-16">
+      <div class="flex justify-between items-center w-full px-4 md:px-12 py-2 max-w-full mx-auto h-14 md:h-16">
         {/* Brand Logo & Title */}
         <Link 
           to="/" 

@@ -215,31 +215,31 @@ export default function HomePage({ onOpenJoinModal }) {
       </HeroFrameCanvas>
 
       {/* About Preview Section */}
-      <section class="py-spotlight-padding px-4 md:px-margin-desktop max-w-container-max mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div class="relative">
-            <div class="absolute -inset-4 border border-outline/20 z-0"></div>
-            <div class="relative z-10 bg-surface-container-high p-3 aspect-[4/3] overflow-hidden">
+      <section class="py-24 md:py-32 px-4 md:px-12 w-full mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+          <div class="lg:col-span-6 relative w-full">
+            <div class="absolute -inset-2 md:-inset-4 border border-outline/20 z-0 rounded-2xl"></div>
+            <div class="relative z-10 bg-surface-container-high p-2 md:p-3 h-[380px] sm:h-[480px] md:h-[560px] w-full overflow-hidden rounded-xl">
               <img
                 src="/legacy-bg.jpg"
                 alt="CHORUS Street Drama Performance"
-                class="w-full h-full object-cover contrast-[1.1] hover:scale-105 transition-all duration-700"
+                class="w-full h-full object-cover contrast-[1.1] hover:scale-105 transition-all duration-700 rounded-lg"
               />
             </div>
           </div>
 
-          <div class="space-y-6">
+          <div class="lg:col-span-6 space-y-6 w-full">
             <div class="flex items-center gap-4">
               <div class="h-1 w-12 bg-primary-fixed"></div>
               <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-widest">Our Legacy</span>
             </div>
-            <h2 class="font-headline-lg text-4xl md:text-5xl text-on-surface uppercase">
+            <h2 class="font-headline-lg text-4xl md:text-5xl lg:text-6xl text-on-surface uppercase leading-tight">
               10 Years of Pure Artistic Excellence
             </h2>
-            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            <p class="font-body-lg text-on-surface-variant text-base md:text-lg leading-relaxed">
               CHORUS IEM Drama Club stands as a beacon for performers and visionaries alike. Born from the desire to push creative boundaries, we have spent a decade transforming the local stage into a canvas of human emotion.
             </p>
-            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            <p class="font-body-lg text-on-surface-variant text-base md:text-lg leading-relaxed">
               Our journey is marked by numerous accolades and standing ovations, but our greatest pride remains the community we've built—a place where the spotlight shines equally on every member.
             </p>
           </div>
@@ -247,12 +247,12 @@ export default function HomePage({ onOpenJoinModal }) {
       </section>
 
       {/* Productions Preview */}
-      <section class="bg-surface-container-lowest py-spotlight-padding border-y border-white/5">
-        <div class="px-4 md:px-margin-desktop max-w-container-max mx-auto">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+      <section class="bg-surface-container-lowest py-24 md:py-32 border-y border-white/5">
+        <div class="px-4 md:px-12 w-full mx-auto">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
               <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-widest block mb-2">On Stage</span>
-              <h2 class="font-headline-lg text-4xl md:text-5xl text-primary-fixed uppercase">Current Season</h2>
+              <h2 class="font-headline-lg text-4xl md:text-5xl lg:text-6xl text-primary-fixed uppercase">Current Season</h2>
             </div>
             <Link
               to="/productions"
@@ -262,52 +262,36 @@ export default function HomePage({ onOpenJoinModal }) {
             </Link>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
             {/* Card 1: Tamasgranthi */}
-            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-3">
-              <div class="aspect-[2/3] overflow-hidden">
+            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-2 rounded-2xl border border-white/10 h-[380px] sm:h-[480px] md:h-[560px]">
+              <div class="w-full h-full overflow-hidden">
                 <img
                   src="/poster-tamasgranthi.jpg"
                   alt="তামসগ্রন্থিস (Tamasgranthi)"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
-              <div class="absolute bottom-0 p-8 w-full border-l-4 border-primary-fixed ml-4 mb-4">
+              <div class="absolute bottom-0 p-8 md:p-10 w-full border-l-4 border-primary-fixed ml-4 mb-4">
                 <span class="font-label-sm text-xs text-primary-fixed/80 uppercase">16th August • Gyan Mancha</span>
-                <h3 class="font-headline-lg text-3xl text-on-surface mt-1 uppercase">তামসগ্রন্থিস</h3>
+                <h3 class="font-headline-lg text-3xl md:text-4xl text-on-surface mt-1 uppercase">তামসগ্রন্থিস</h3>
               </div>
             </div>
 
             {/* Card 2: Japoner Jonno */}
-            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-3">
-              <div class="aspect-[2/3] overflow-hidden">
+            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-2 rounded-2xl border border-white/10 h-[380px] sm:h-[480px] md:h-[560px]">
+              <div class="w-full h-full overflow-hidden">
                 <img
                   src="/poster-japoner-jonno.jpg"
                   alt="যাপনের জন্য (Japoner Jonno)"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
-              <div class="absolute bottom-0 p-8 w-full border-l-4 border-primary-fixed ml-4 mb-4">
-                <span class="font-label-sm text-xs text-primary-fixed/80 uppercase">Based on Manto</span>
-                <h3 class="font-headline-lg text-3xl text-on-surface mt-1 uppercase">যাপনের জন্য</h3>
-              </div>
-            </div>
-
-            {/* Card 3: Menzone */}
-            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-3">
-              <div class="aspect-[2/3] overflow-hidden">
-                <img
-                  src="/poster-menzone.jpg"
-                  alt="MENZONE"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
-              <div class="absolute bottom-0 p-8 w-full border-l-4 border-primary-fixed ml-4 mb-4">
-                <span class="font-label-sm text-xs text-primary-fixed/80 uppercase">14th December • Gyan Mancha</span>
-                <h3 class="font-headline-lg text-3xl text-on-surface mt-1 uppercase">MENZONE</h3>
+              <div class="absolute bottom-0 p-8 md:p-10 w-full border-l-4 border-primary-fixed ml-4 mb-4">
+                <span class="font-label-sm text-xs text-primary-fixed/80 uppercase">Featured Production</span>
+                <h3 class="font-headline-lg text-3xl md:text-4xl text-on-surface mt-1 uppercase">যাপনের জন্য</h3>
               </div>
             </div>
           </div>
@@ -361,50 +345,55 @@ export default function HomePage({ onOpenJoinModal }) {
       </section>
 
       {/* Take Your Place Center Stage Section */}
-      <section class="py-spotlight-padding px-4 md:px-margin-desktop max-w-container-max mx-auto" id="join">
-        <div class="bg-surface-container-low p-8 md:p-16 border border-outline-variant/20 relative rounded-3xl overflow-hidden shadow-2xl">
-          <div class="absolute top-0 right-0 p-8 md:p-12 opacity-10 pointer-events-none">
-            <span class="material-symbols-outlined text-[8rem] md:text-[10rem]">mail</span>
-          </div>
-          <div class="max-w-2xl relative z-10">
-            <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-[0.3em] mb-2 block">Get On Stage</span>
-            <h2 class="font-headline-lg text-4xl md:text-5xl text-primary-fixed mb-8 uppercase">Take Your Place Center Stage</h2>
-            <form onSubmit={(e) => { e.preventDefault(); onOpenJoinModal(); }} class="space-y-6">
-              <div>
-                <input
-                  required
-                  type="text"
-                  placeholder="FULL NAME"
-                  class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-4 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all"
-                />
-              </div>
-              <div>
-                <input
-                  required
-                  type="email"
-                  placeholder="EMAIL ADDRESS"
-                  class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-4 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all"
-                />
-              </div>
-              <div>
-                <select
-                  required
-                  class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-4 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all appearance-none cursor-pointer"
+      <section class="py-16 md:py-24 px-4 md:px-12 w-full mx-auto" id="join">
+        <div class="bg-surface-container-low p-8 md:p-12 lg:p-16 border border-outline-variant/20 relative rounded-3xl overflow-hidden shadow-2xl w-full">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full relative z-10">
+            <div class="lg:col-span-5 space-y-4">
+              <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-[0.3em] block">Get On Stage</span>
+              <h2 class="font-headline-lg text-4xl md:text-5xl lg:text-6xl text-primary-fixed uppercase leading-tight">Take Your Place Center Stage</h2>
+              <p class="font-body-lg text-on-surface-variant text-base leading-relaxed">
+                Whether your passion lies in acting, writing, directing, or managing light & sound behind the curtains, CHORUS is your launchpad. Submit your application to join our upcoming auditions.
+              </p>
+            </div>
+            
+            <div class="lg:col-span-7 w-full">
+              <form onSubmit={(e) => { e.preventDefault(); onOpenJoinModal(); }} class="space-y-6">
+                <div>
+                  <input
+                    required
+                    type="text"
+                    placeholder="FULL NAME"
+                    class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <input
+                    required
+                    type="email"
+                    placeholder="EMAIL ADDRESS"
+                    class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <select
+                    required
+                    class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary-fixed font-label-sm text-xs uppercase tracking-widest text-on-surface outline-none transition-all appearance-none cursor-pointer"
+                  >
+                    <option class="bg-surface text-on-surface" value="">SELECT DEPARTMENT</option>
+                    <option class="bg-surface text-on-surface" value="ACTING">ACTING</option>
+                    <option class="bg-surface text-on-surface" value="DIRECTION">DIRECTION</option>
+                    <option class="bg-surface text-on-surface" value="TECHNICAL">TECHNICAL</option>
+                    <option class="bg-surface text-on-surface" value="WRITING">WRITING</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  class="bg-primary-fixed text-black px-12 py-4 font-label-sm text-xs font-bold uppercase tracking-widest hover:glow-primary-fixed hover:scale-105 active:scale-95 transition-all duration-300 rounded-full w-full sm:w-auto"
                 >
-                  <option class="bg-surface text-on-surface" value="">SELECT DEPARTMENT</option>
-                  <option class="bg-surface text-on-surface" value="ACTING">ACTING</option>
-                  <option class="bg-surface text-on-surface" value="DIRECTION">DIRECTION</option>
-                  <option class="bg-surface text-on-surface" value="TECHNICAL">TECHNICAL</option>
-                  <option class="bg-surface text-on-surface" value="WRITING">WRITING</option>
-                </select>
-              </div>
-              <button
-                type="submit"
-                class="bg-primary-fixed text-black px-12 py-5 font-label-sm font-bold uppercase tracking-widest hover:glow-primary-fixed hover:scale-105 active:scale-95 transition-all duration-300 mt-4 rounded-full"
-              >
-                Submit Application
-              </button>
-            </form>
+                  Submit Application
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
