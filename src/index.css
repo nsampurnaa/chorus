@@ -11,6 +11,10 @@
     background: radial-gradient(circle at 50% -20%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
   }
 
+  .spotlight-gradient-full {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 55%, transparent 85%);
+  }
+
   .spotlight-gradient-top {
     background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
   }

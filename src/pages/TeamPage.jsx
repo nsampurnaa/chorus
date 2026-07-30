@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { User, Sparkles } from 'lucide-react';
 
 export default function TeamPage({ onOpenJoinModal }) {
-  const [selectedDept, setSelectedDept] = useState('Actors');
-
   const execBoard = [
     {
       name: 'Julian Vance',
@@ -25,74 +23,44 @@ export default function TeamPage({ onOpenJoinModal }) {
     }
   ];
 
-  const membersByDept = {
-    Actors: [
-      {
-        name: 'Sarah Jenkins',
-        sub: 'Lead Ensemble',
-        desc: 'Specializing in classical drama and experimental theater movements.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBZJulkp1QO4ynfjjhoyazdunRFJKu67ZzQAxAdpV3tVRB4XxFGjKqcgsN8jr6lbJo-R5UBxbIVW3SBw1z5_nj2b3dT21Sjp1UMQyIlPkvvpEenD8WD37Ve6C-UgLe6r6tHlhdQssogt5Evbm0V2IaqtsgBx_qPVQXoIStEA9OBTr1keCElY5Z92PqKhNxjzFfF5rDkTQV3TqFnIuZikgiDhRvEZsd6Ychs1Jfnw-5lkD6gYBMNPZxfU_N3K9eRfHRFOiOt-sWOr-0'
-      },
-      {
-        name: 'David Okafor',
-        sub: 'Character Actor',
-        desc: 'Focused on physical theater and voice-over performance techniques.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4eSdb4lKFEfSil7gsm8v1kZRWtcR2iRoTp-plesb6gKoKS8bcTxh8Gbh8_IrZFkRFGmc-bySF31BJ77iWU31-7mbqDzmWQI4GemVkqXUADFMQP-NPekir36PjVEvhb3WG5aYln_OwX-2NDGOPA0zeGX4BdW1FBNi4Pr2QZKw8R40T5A1I55ePMNjPcWlZnqiG9CLR9bEyUJwSGCYHlxBnI4nxi3wzndPNGG3DIIbBuG7RjhftnHWqTVYgcVW0OckZScAIom3wH4'
-      },
-      {
-        name: 'Riley Smith',
-        sub: 'Method Performance',
-        desc: 'Exploring the intersection of internal psychology and stage presence.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvbLv-QJlaFPKgQSBUj92Xn4aaNkEGOywt7nBwt3gl2B3CoNTMP1Mb427kTgFU1y2jXd5FXQ8YYThyuzqV5rhWWGqrSjMfX0abG18AUTeEwTZgDRNrc8G_JlHVghWDGwYIKgTtZd6la_qcboI96kA8c2NnUGiALnDtkH5aDqhzeVs5F07BsRsGab4YS6ElWgdo3V5SAObSQRGTIfJj23IKA7aLG0vpWGmeYUeh5Mak4K4xxS-V_NIa8Ovs8kNHa-5wQ3fci5FqXFU'
-      },
-      {
-        name: 'Maya Lopez',
-        sub: 'Dramatic Lead',
-        desc: 'Renowned for emotional depth in contemporary stage revivals.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgujKcwjAyS0sabfYjb7GMSjyIcwWzebGGxCfQWXFbMDnzsBaU1ZfTrj2OkNENuoraXlrA9WYx7xUAlD1Zu21VokK_qiPWMt3dCY0fJ7f6zDsBqyO7Fn96qgRz_k-DlN5RlZ5prNhDpj6Jbjxs9uhP05LKDpeXjSk-2RFEXcyGy58-yF7P5x2_H-PVMe6vymzNoL7sGpURrWyzF52I7BFcuYHTVsoZXpDkt9aHB4xFz5dWJhyfOgUTZqcF6J3r3rWydMn5tInSOe8'
-      }
-    ],
-    Directors: [
-      {
-        name: "Liam O'Connor",
-        sub: 'Stage Director',
-        desc: 'Pioneering minimalist stage blocking and high-contrast atmospheric direction.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBFRdUUB9iH7_udYcGR2XbaiZFsuFkkGPifmiJ52hnqvSm1JTyTs9mOOBJ2boG64beiYw2NB130qJesRrttwlLi-B4KH2LPh-COf-VzOLlS9zHBkfOKJAXdp77w-Q7vGOpSYXQts3MVFjG0GO4e0Dhva9_BVAibTWqqJUguVR9KS0Mf_EChuYppEzMj5qJfBdn2DHME-kLZSc_DNSQEJKYVZg86aQ-Ys5l6OxqbWbLmHFLVAkBp8qiWixuPxUGZMcAVLNwJ8al7FOM'
-      },
-      {
-        name: 'Ananya Roy',
-        sub: 'Playwright & Script Lead',
-        desc: 'Writing original one-act plays for inter-college theater festivals.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBZwLLsGFB4vav0nCzay7XSSaCzAHJYzjJ0WoF3wZ9mVO9NoXsM8o-lr-A9e5tlsdyWLGfrsKCX2hzV5Cz0GuX5LwmQDmx3xULSk5trn0Vbtp0oj5HyqSFuW65TkKYojBvX0UCCH2Z8_M0g2IRoWqbRoE9vUfjqTrSrKgzU2We4Qv-MGdg1SeGI4o-tPmfSdQ0Rw3JjE3ITTMqAnjR47yJd-utpkTILIb8PIGhrJvQ3H7Ber8_TxYmLFnj4vzb-jG-DNSGq2jbYqrE'
-      }
-    ],
-    Designers: [
-      {
-        name: 'Vikram Malhotra',
-        sub: 'Lighting Designer',
-        desc: 'Designing sharp spotlight gradients and dramatic shadows for live stage.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-ohmijFKFIPhvFZonr56BFbEBRxhhDY05LMXc5iOkBbIaTfd-MsQ3TjR36G3jOw9Pmj_1sw7tW7GSXIhrXO9EfFpfUxWCaeW9YnzdLosayQ_qJaxHJZLY_TUUiZp4NHni39rbEE5e46rUcQIfMFnTUvPTjqhZkBBuppqhMasgw7egc01SSqhu7NYfH6e3ryVT-UMVSyR5F9ZNfaJLZCKT7aWxN0Xa0-EI4OJjKOPHxGWUtuJETg5mfQAIH5XiGzyhJehCBPrvJuM'
-      }
-    ],
-    Musicians: [
-      {
-        name: 'Sophia Patel',
-        sub: 'Music Director',
-        desc: 'Composing original acoustic scores and soundscapes for productions.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgujKcwjAyS0sabfYjb7GMSjyIcwWzebGGxCfQWXFbMDnzsBaU1ZfTrj2OkNENuoraXlrA9WYx7xUAlD1Zu21VokK_qiPWMt3dCY0fJ7f6zDsBqyO7Fn96qgRz_k-DlN5RlZ5prNhDpj6Jbjxs9uhP05LKDpeXjSk-2RFEXcyGy58-yF7P5x2_H-PVMe6vymzNoL7sGpURrWyzF52I7BFcuYHTVsoZXpDkt9aHB4xFz5dWJhyfOgUTZqcF6J3r3rWydMn5tInSOe8'
-      }
-    ],
-    Crew: [
-      {
-        name: 'Karan Sharma',
-        sub: 'Stage Manager',
-        desc: 'Keeping cue timing, set changes, and backstage operations seamless.',
-        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4eSdb4lKFEfSil7gsm8v1kZRWtcR2iRoTp-plesb6gKoKS8bcTxh8Gbh8_IrZFkRFGmc-bySF31BJ77iWU31-7mbqDzmWQI4GemVkqXUADFMQP-NPekir36PjVEvhb3WG5aYln_OwX-2NDGOPA0zeGX4BdW1FBNi4Pr2QZKw8R40T5A1I55ePMNjPcWlZnqiG9CLR9bEyUJwSGCYHlxBnI4nxi3wzndPNGG3DIIbBuG7RjhftnHWqTVYgcVW0OckZScAIom3wH4'
-      }
-    ]
-  };
-
-  const activeMembers = membersByDept[selectedDept] || membersByDept.Actors;
+  const members = [
+    {
+      name: 'Akshita Banerjee',
+      img: '/actors/Akshita Banerjee.jpg'
+    },
+    {
+      name: 'Diptomoy Das',
+      img: '/actors/Diptomoy Das.jpg'
+    },
+    {
+      name: 'Sneha Guha',
+      img: '/actors/Sneha Guha.png'
+    },
+    {
+      name: 'Maya Lopez',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgujKcwjAyS0sabfYjb7GMSjyIcwWzebGGxCfQWXFbMDnzsBaU1ZfTrj2OkNENuoraXlrA9WYx7xUAlD1Zu21VokK_qiPWMt3dCY0fJ7f6zDsBqyO7Fn96qgRz_k-DlN5RlZ5prNhDpj6Jbjxs9uhP05LKDpeXjSk-2RFEXcyGy58-yF7P5x2_H-PVMe6vymzNoL7sGpURrWyzF52I7BFcuYHTVsoZXpDkt9aHB4xFz5dWJhyfOgUTZqcF6J3r3rWydMn5tInSOe8'
+    },
+    {
+      name: "Liam O'Connor",
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBFRdUUB9iH7_udYcGR2XbaiZFsuFkkGPifmiJ52hnqvSm1JTyTs9mOOBJ2boG64beiYw2NB130qJesRrttwlLi-B4KH2LPh-COf-VzOLlS9zHBkfOKJAXdp77w-Q7vGOpSYXQts3MVFjG0GO4e0Dhva9_BVAibTWqqJUguVR9KS0Mf_EChuYppEzMj5qJfBdn2DHME-kLZSc_DNSQEJKYVZg86aQ-Ys5l6OxqbWbLmHFLVAkBp8qiWixuPxUGZMcAVLNwJ8al7FOM'
+    },
+    {
+      name: 'Ananya Roy',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBZwLLsGFB4vav0nCzay7XSSaCzAHJYzjJ0WoF3wZ9mVO9NoXsM8o-lr-A9e5tlsdyWLGfrsKCX2hzV5Cz0GuX5LwmQDmx3xULSk5trn0Vbtp0oj5HyqSFuW65TkKYojBvX0UCCH2Z8_M0g2IRoWqbRoE9vUfjqTrSrKgzU2We4Qv-MGdg1SeGI4o-tPmfSdQ0Rw3JjE3ITTMqAnjR47yJd-utpkTILIb8PIGhrJvQ3H7Ber8_TxYmLFnj4vzb-jG-DNSGq2jbYqrE'
+    },
+    {
+      name: 'Vikram Malhotra',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-ohmijFKFIPhvFZonr56BFbEBRxhhDY05LMXc5iOkBbIaTfd-MsQ3TjR36G3jOw9Pmj_1sw7tW7GSXIhrXO9EfFpfUxWCaeW9YnzdLosayQ_qJaxHJZLY_TUUiZp4NHni39rbEE5e46rUcQIfMFnTUvPTjqhZkBBuppqhMasgw7egc01SSqhu7NYfH6e3ryVT-UMVSyR5F9ZNfaJLZCKT7aWxN0Xa0-EI4OJjKOPHxGWUtuJETg5mfQAIH5XiGzyhJehCBPrvJuM'
+    },
+    {
+      name: 'Sophia Patel',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgujKcwjAyS0sabfYjb7GMSjyIcwWzebGGxCfQWXFbMDnzsBaU1ZfTrj2OkNENuoraXlrA9WYx7xUAlD1Zu21VokK_qiPWMt3dCY0fJ7f6zDsBqyO7Fn96qgRz_k-DlN5RlZ5prNhDpj6Jbjxs9uhP05LKDpeXjSk-2RFEXcyGy58-yF7P5x2_H-PVMe6vymzNoL7sGpURrWyzF52I7BFcuYHTVsoZXpDkt9aHB4xFz5dWJhyfOgUTZqcF6J3r3rWydMn5tInSOe8'
+    },
+    {
+      name: 'Karan Sharma',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4eSdb4lKFEfSil7gsm8v1kZRWtcR2iRoTp-plesb6gKoKS8bcTxh8Gbh8_IrZFkRFGmc-bySF31BJ77iWU31-7mbqDzmWQI4GemVkqXUADFMQP-NPekir36PjVEvhb3WG5aYln_OwX-2NDGOPA0zeGX4BdW1FBNi4Pr2QZKw8R40T5A1I55ePMNjPcWlZnqiG9CLR9bEyUJwSGCYHlxBnI4nxi3wzndPNGG3DIIbBuG7RjhftnHWqTVYgcVW0OckZScAIom3wH4'
+    }
+  ];
 
   return (
     <div class="space-y-0">
@@ -120,14 +88,14 @@ export default function TeamPage({ onOpenJoinModal }) {
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* President */}
-            <div class="md:col-span-6 group relative overflow-hidden bg-surface-container-high ticket-notch min-h-[420px] bw-to-color">
+            <div class="md:col-span-6 group relative overflow-hidden bg-surface-container-high rounded-2xl min-h-[420px] transition-all duration-500 hover:scale-[1.04] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(0,0,0,0.85)] cursor-pointer">
               <div
-                class="absolute inset-0 bg-cover bg-center"
+                class="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url('${execBoard[0].img}')` }}
               ></div>
-              <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90 group-hover:from-primary-fixed/20 transition-all duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90 transition-all duration-500 rounded-2xl"></div>
               <div class="absolute bottom-0 p-8">
-                <span class="font-label-sm text-xs uppercase text-primary-fixed bg-background/80 px-3 py-1 font-bold">
+                <span class="font-label-sm text-xs uppercase text-primary-fixed bg-background/80 px-3 py-1 font-bold rounded-full">
                   {execBoard[0].role}
                 </span>
                 <h3 class="font-headline-lg text-4xl uppercase text-on-surface mt-3">
@@ -142,12 +110,12 @@ export default function TeamPage({ onOpenJoinModal }) {
             {/* VP & Treasurer */}
             <div class="md:col-span-6 grid grid-rows-2 gap-8">
               {execBoard.slice(1).map((person, i) => (
-                <div key={i} class="group relative overflow-hidden bg-surface-container-high ticket-notch min-h-[200px] bw-to-color">
+                <div key={i} class="group relative overflow-hidden bg-surface-container-high rounded-2xl min-h-[200px] transition-all duration-500 hover:scale-[1.04] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(0,0,0,0.85)] cursor-pointer">
                   <div
-                    class="absolute inset-0 bg-cover bg-center"
+                    class="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url('${person.img}')` }}
                   ></div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 group-hover:from-primary-fixed/20"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 rounded-2xl"></div>
                   <div class="absolute bottom-0 p-6">
                     <span class="font-label-sm text-xs uppercase text-primary-fixed font-bold">
                       {person.role}
@@ -163,45 +131,27 @@ export default function TeamPage({ onOpenJoinModal }) {
         </div>
       </section>
 
-      {/* Department Tabs & Grid */}
-      <section class="py-spotlight-padding px-4 md:px-margin-desktop max-w-container-max mx-auto">
-        {/* Category Nav */}
-        <div class="flex flex-wrap justify-center gap-4 mb-16">
-          {Object.keys(membersByDept).map((dept) => (
-            <button
-              key={dept}
-              onClick={() => setSelectedDept(dept)}
-              class={`font-label-sm text-xs uppercase px-8 py-3 tracking-widest transition-all duration-300 font-bold ${
-                selectedDept === dept
-                  ? 'bg-primary-container text-on-primary-container glow-primary-fixed'
-                  : 'border-2 border-outline-variant text-on-surface-variant hover:border-primary-fixed hover:text-primary-fixed'
-              }`}
-            >
-              {dept}
-            </button>
-          ))}
-        </div>
+      {/* Ensemble Grid */}
+      <section class="relative py-spotlight-padding bg-surface-container-lowest spotlight-gradient-full overflow-hidden border-t border-white/5">
+        <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop relative z-10">
+          <h2 class="font-headline-lg text-4xl text-primary-fixed uppercase mb-12 border-l-4 border-primary-fixed pl-6">
+            The Ensemble
+          </h2>
 
-        {/* Members Grid */}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {activeMembers.map((member, idx) => (
-            <div key={idx} class="group">
-              <div class="aspect-[3/4] overflow-hidden ticket-notch bg-surface-container mb-4 bw-to-color relative">
-                <div
-                  class="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${member.img}')` }}
-                ></div>
-                <div class="absolute inset-0 bg-primary-fixed/0 group-hover:bg-primary-fixed/10 transition-colors duration-500"></div>
+          {/* Members Grid */}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {members.map((member, idx) => (
+              <div key={idx} class="group">
+                <div class="aspect-[3/4] overflow-hidden rounded-2xl bg-surface-container mb-4 relative transition-all duration-500 group-hover:scale-[1.05] group-hover:-translate-y-3 group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.9)] cursor-pointer">
+                  <div
+                    class="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${member.img}')` }}
+                  ></div>
+                </div>
+                <h4 class="font-headline-lg text-2xl uppercase text-on-surface">{member.name}</h4>
               </div>
-              <h4 class="font-headline-lg text-2xl uppercase text-on-surface">{member.name}</h4>
-              <p class="font-label-sm text-xs uppercase text-primary-fixed-dim font-bold mt-1">
-                {member.sub}
-              </p>
-              <p class="font-body-md text-xs text-on-surface-variant mt-2">
-                {member.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </div>

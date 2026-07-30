@@ -55,11 +55,11 @@ export default function AboutPage({ onOpenJoinModal }) {
               </span>
             </div>
 
-            <div class="relative h-1/2 overflow-hidden ticket-notch bg-surface-container min-h-[200px]">
+            <div class="relative h-1/2 overflow-hidden rounded-2xl bg-surface-container min-h-[200px] group transition-all duration-500 hover:scale-[1.04] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(0,0,0,0.85)] cursor-pointer">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs9W636prPun3qduqA7mLajSfinEIJcmb68VdpgOTJKHldyvCiNfbMN6sugf3ZKdMu5cjg0x9G-knqsy9tfj5bsz6powaJuOgK0Q8JXRlFYTQT2_XtCFktLgCOkc_9FTkd2-Y6gATTilmveWBRiyJDnY_K4Ph02AN7_NPp7sQ7Cp0rDeI8M9g-o8To8kkI7IPCVuo9fP9RSkwPhylVLUZC_NbOwMq3OweJwV2MarHrFsj-YUNzWaC4kElBBc8WNxUv3uCXmzIELog"
                 alt="Stage spotlight"
-                class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 rounded-2xl"
               />
               <div class="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black to-transparent">
                 <span class="font-label-sm text-xs text-primary-fixed uppercase tracking-widest font-bold">

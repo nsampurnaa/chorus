@@ -58,9 +58,9 @@ export default function ProductionsPage({ onOpenJoinModal }) {
 
           {/* Major Featured Production Card */}
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-6 group relative overflow-hidden min-h-[500px] md:h-[600px] bg-surface-container-high rounded-2xl border border-white/10">
+            <div class="lg:col-span-6 group relative overflow-hidden min-h-[500px] md:h-[600px] bg-surface-container-high rounded-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.9)] cursor-pointer">
               <div
-                class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{
                   backgroundImage: `url('/poster-tamasgranthi.jpg')`
                 }}
@@ -91,9 +91,9 @@ export default function ProductionsPage({ onOpenJoinModal }) {
             </div>
 
             <div class="lg:col-span-6 flex flex-col">
-              <div class="flex-1 group relative overflow-hidden bg-black min-h-[500px] md:h-[600px] rounded-2xl border border-white/10">
+              <div class="flex-1 group relative overflow-hidden bg-black min-h-[500px] md:h-[600px] rounded-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.9)] cursor-pointer">
                 <div
-                  class="absolute inset-0 bg-contain bg-no-repeat bg-center transition-all duration-500 group-hover:scale-105"
+                  class="absolute inset-0 bg-contain bg-no-repeat bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{
                     backgroundImage: `url('/poster-japoner-jonno.jpg')`
                   }}
@@ -129,13 +129,13 @@ export default function ProductionsPage({ onOpenJoinModal }) {
               {[...archiveShows, ...archiveShows, ...archiveShows, ...archiveShows].map((show, idx) => (
                 <div
                   key={`${show.id}-${idx}`}
-                  class="w-[260px] sm:w-[360px] md:w-[420px] flex-shrink-0 bg-surface-container-low group cursor-pointer overflow-hidden border border-white/10 hover:border-primary-fixed/50 hover:shadow-[0_20px_50px_rgba(255,215,0,0.15)] hover:scale-[1.03] transition-all duration-500 rounded-2xl"
+                  class="w-[260px] sm:w-[360px] md:w-[420px] flex-shrink-0 bg-surface-container-low group cursor-pointer overflow-hidden hover:border-primary-fixed/50 hover:shadow-[0_25px_50px_rgba(0,0,0,0.85)] hover:scale-[1.05] hover:-translate-y-3 transition-all duration-500 rounded-2xl"
                 >
-                  <div class="relative h-56 sm:h-64 md:h-72 overflow-hidden bg-black">
+                  <div class="relative h-56 sm:h-64 md:h-72 overflow-hidden bg-black rounded-t-2xl">
                     <img
                       src={show.img}
                       alt={show.title}
-                      class="w-full h-full object-contain md:object-cover bg-black transition-transform duration-700 group-hover:scale-110"
+                      class="w-full h-full object-contain md:object-cover bg-black rounded-t-2xl transition-transform duration-700 group-hover:scale-110"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
                   </div>
@@ -171,7 +171,7 @@ export default function ProductionsPage({ onOpenJoinModal }) {
               <img
                 src={selectedTicketShow.img}
                 alt={selectedTicketShow.title}
-                class="w-full h-56 object-contain rounded-2xl bg-black border border-white/10"
+                class="w-full h-56 object-contain rounded-2xl bg-black"
               />
             )}
             <h3 class="font-headline-lg text-2xl sm:text-3xl text-primary-fixed uppercase">{selectedTicketShow.title}</h3>

@@ -124,17 +124,17 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setActiveLightboxItem(item)}
-              class="break-inside-avoid group cursor-pointer overflow-hidden relative bg-surface-container border border-white/5 hover:border-primary-fixed/40 transition-all duration-300 rounded-2xl shadow-lg"
+              class="break-inside-avoid group cursor-pointer overflow-hidden relative bg-surface-container hover:border-primary-fixed/40 transition-all duration-500 hover:scale-[1.05] hover:-translate-y-3 hover:shadow-[0_25px_50px_rgba(0,0,0,0.9)] hover:z-20 rounded-2xl shadow-lg"
             >
-              <div class="overflow-hidden bg-surface-container-high relative">
+              <div class="overflow-hidden bg-surface-container-high relative rounded-2xl">
                 <img 
                   src={item.img} 
                   alt={item.title}
-                  class="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-auto block transition-transform duration-700 group-hover:scale-110 rounded-2xl"
                   loading="lazy"
                 />
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 pointer-events-none">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 pointer-events-none rounded-2xl">
                   <span class="font-label-sm text-xs uppercase text-primary-fixed mb-1 font-bold">
                     {item.category}
                   </span>
@@ -162,7 +162,7 @@ export default function GalleryPage() {
             <img
               src={activeLightboxItem.img}
               alt={activeLightboxItem.title}
-              className="max-h-[70vh] w-auto object-contain border border-primary-fixed/20 shadow-2xl mb-6"
+              className="max-h-[70vh] w-auto object-contain border border-primary-fixed/20 shadow-2xl mb-6 rounded-2xl"
             />
             <h2 className="font-headline-lg text-3xl md:text-4xl uppercase text-primary-fixed">
               {activeLightboxItem.title}

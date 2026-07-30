@@ -217,13 +217,13 @@ export default function HomePage({ onOpenJoinModal }) {
       {/* About Preview Section */}
       <section class="py-24 md:py-32 px-4 md:px-12 w-full mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
-          <div class="lg:col-span-6 relative w-full">
+          <div class="lg:col-span-6 relative w-full group">
             <div class="absolute -inset-2 md:-inset-4 border border-outline/20 z-0 rounded-2xl"></div>
-            <div class="relative z-10 bg-surface-container-high p-2 md:p-3 h-[380px] sm:h-[480px] md:h-[560px] w-full overflow-hidden rounded-xl">
+            <div class="relative z-10 bg-surface-container-high p-2 md:p-3 h-[380px] sm:h-[480px] md:h-[560px] w-full overflow-hidden rounded-xl transition-all duration-500 group-hover:scale-[1.04] group-hover:-translate-y-2 group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.85)] cursor-pointer">
               <img
                 src="/legacy-bg.jpg"
                 alt="CHORUS Street Drama Performance"
-                class="w-full h-full object-cover contrast-[1.1] hover:scale-105 transition-all duration-700 rounded-lg"
+                class="w-full h-full object-cover contrast-[1.1] transition-transform duration-700 group-hover:scale-110 rounded-lg"
               />
             </div>
           </div>
@@ -264,12 +264,12 @@ export default function HomePage({ onOpenJoinModal }) {
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
             {/* Card 1: Tamasgranthi */}
-            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-2 rounded-2xl border border-white/10 h-[380px] sm:h-[480px] md:h-[560px]">
+            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:scale-[1.04] hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.9)] rounded-2xl h-[380px] sm:h-[480px] md:h-[560px] cursor-pointer">
               <div class="w-full h-full overflow-hidden">
                 <img
                   src="/poster-tamasgranthi.jpg"
                   alt="তামসগ্রন্থিস (Tamasgranthi)"
-                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
@@ -280,12 +280,12 @@ export default function HomePage({ onOpenJoinModal }) {
             </div>
 
             {/* Card 2: Japoner Jonno */}
-            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:-translate-y-2 rounded-2xl border border-white/10 h-[380px] sm:h-[480px] md:h-[560px]">
+            <div class="group relative overflow-hidden bg-surface-container shadow-2xl transition-all duration-500 hover:scale-[1.04] hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.9)] rounded-2xl h-[380px] sm:h-[480px] md:h-[560px] cursor-pointer">
               <div class="w-full h-full overflow-hidden">
                 <img
                   src="/poster-japoner-jonno.jpg"
                   alt="যাপনের জন্য (Japoner Jonno)"
-                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
@@ -319,9 +319,9 @@ export default function HomePage({ onOpenJoinModal }) {
               if (isCenter) {
                 styleClasses = 'opacity-100 z-30 scale-100 translate-x-0 shadow-[0_20px_60px_rgba(0,0,0,0.9)] border-2 border-primary-fixed/40 hover:scale-[1.04] hover:-translate-y-3 hover:border-primary-fixed hover:shadow-[0_30px_80px_rgba(255,215,0,0.3)] cursor-pointer';
               } else if (isLeft) {
-                styleClasses = 'opacity-40 hover:opacity-90 z-10 scale-[0.82] hover:scale-[0.88] hover:-translate-y-2 -translate-x-[60%] sm:-translate-x-[65%] md:-translate-x-[70%] cursor-pointer border border-white/10 filter brightness-75 hover:brightness-100 hover:shadow-2xl hover:border-primary-fixed/40';
+                styleClasses = 'opacity-40 hover:opacity-90 z-10 scale-[0.82] hover:scale-[0.88] hover:-translate-y-2 -translate-x-[60%] sm:-translate-x-[65%] md:-translate-x-[70%] cursor-pointer filter brightness-75 hover:brightness-100 hover:shadow-2xl hover:border-primary-fixed/40';
               } else if (isRight) {
-                styleClasses = 'opacity-40 hover:opacity-90 z-10 scale-[0.82] hover:scale-[0.88] hover:-translate-y-2 translate-x-[60%] sm:translate-x-[65%] md:translate-x-[70%] cursor-pointer border border-white/10 filter brightness-75 hover:brightness-100 hover:shadow-2xl hover:border-primary-fixed/40';
+                styleClasses = 'opacity-40 hover:opacity-90 z-10 scale-[0.82] hover:scale-[0.88] hover:-translate-y-2 translate-x-[60%] sm:translate-x-[65%] md:translate-x-[70%] cursor-pointer filter brightness-75 hover:brightness-100 hover:shadow-2xl hover:border-primary-fixed/40';
               }
 
               return (
